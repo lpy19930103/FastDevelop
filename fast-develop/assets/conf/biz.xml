@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<runtime>
+    <bizs>
+        <biz name="首页" icon="nav_normal_product_recommend" pressedIcon="nav_pressed_product_recommend" color="#FDFDFD" pressedColor="#FDFDFD"
+             textColor="#8D8A85" textPressedColor="#AE9459" url="" needLogin="false"
+             class="com.lipy.android.fragment.ProductFragment"/>
+        <biz name="个人" icon="nav_normal_finance_list" pressedIcon="nav_pressed_finance_list" color="#FDFDFD" pressedColor="#FDFDFD"
+             textColor="#8D8A85" textPressedColor="#AE9459" url="" needLogin="true"
+             class="com.lipy.android.fragment.MineFragment"/>
+        <biz name="设置" icon="nav_normal_mine" pressedIcon="nav_pressed_mine" color="#FDFDFD" pressedColor="#FDFDFD"
+             textColor="#8D8A85" textPressedColor="#AE9459" url="" needLogin="false"
+             class="com.lipy.android.fragment.SettingFragment"/>
+    </bizs>
+</runtime>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main_gray">#636f7e</color>
+    <color name="main_black">#000000</color>
+    <color name="main_darkgrey">#ff44513f</color>
+    <color name="main_buttonlight">#B0F0CD</color>
+    <color name="main_toolbar_background">#A8CC8A</color>
+    <color name="main_button_bg">#ff103020</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="blue">#17acf1</color>
+    <color name="transparent_dark">#e0000000</color>
+    <color name="transparent_light">#40000000</color>
+    <color name="line_color_dark">#d8d8d8</color>
+    <color name="line_color_light">#ebebeb</color>
+    <color name="pressed_color">#ebebeb</color>
+    <color name="title_default_color">#152738</color>
+    <color name="banner_doto_normal">#f0f0f0</color>
+    <color name="banner_doto_focused">#6c6c6c</color>
+
+    <color name="nav_title_color">#313131</color>
+    <color name="nav_sub_title_color">#878787</color>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 指定父样式，会影响界面布局格调-->
+    <style name="applicationTheme" parent="android:Theme.Light">
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+    </style>
+    <style name="splashTheme" parent="android:Theme.NoTitleBar">
+        <!--<item name="android:windowBackground">@drawable/</item>-->
+    </style>
+    <!-- Application theme -->
+    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    <style name="AppTheme" parent="AppBaseTheme"/>
+    <style name="AppBaseTheme" parent="android:Theme.Light"/>
+
+    <style name="main_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/main_gray</item>
+    </style>
+
+    <style name="nav_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>
