@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <TextView android:layout_width="wrap_content"
-              android:layout_gravity="center"
-              android:text="个人"
-              android:layout_height="wrap_content"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+
+    <com.lipy.viewlibrary.banner.BannerView
+        android:id="@+id/banner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/white"
+        app:bvAspectRatio="0.6666666"
+        app:bvIndicatorColor="#cccccc"
+        app:bvIndicatorColorSelected="@color/colorAccent" />
+
+    <com.lipy.viewlibrary.banner.BannerView
+        android:id="@+id/banner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:bvAspectRatio="0.6666666"
+        app:bvBarColor="#88888888"
+        app:bvIndicatorColor="#cccccc"
+        app:bvIndicatorColorSelected="@color/colorAccent"
+        app:bvIndicatorGravity="right"
+        app:bvTitleVisible="true" />
 </LinearLayout>

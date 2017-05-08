@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <Button
+        android:layout_margin="10dp"
+        android:id="@+id/btn_one"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#d5d5d5"
+        android:text="ONE" />
+
+    <Button
+        android:layout_margin="10dp"
+        android:id="@+id/btn_two"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#d5d5d5"
+        android:text="TWO" />
+
+    <Button
+        android:layout_margin="10dp"
+        android:id="@+id/btn_three"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#d5d5d5"
+        android:text="THREE" />
+
+    <Button
+        android:layout_margin="10dp"
+        android:id="@+id/btn_four"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#d5d5d5"
+        android:text="FOUR" />
+
+
+</LinearLayout>

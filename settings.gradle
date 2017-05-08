@@ -1,2 +1,2 @@
-include ':fast-develop'
+include ':fast-develop', ':viewlibrary'
 

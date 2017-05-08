@@ -1,14 +1,14 @@
 package com.lipy.android;
 
-import com.lipy.android.data.UserData;
-import com.lipy.android.fragment.squared.MainScreenFragment;
-import com.lipy.fastdevelop.R;
-
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.Toast;
+
+import com.lipy.android.data.UserData;
+import com.lipy.android.fragment.squared.MainScreenFragment;
+import com.lipy.fastdevelop.R;
 
 public class MainActivity extends FragmentActivity {
 
