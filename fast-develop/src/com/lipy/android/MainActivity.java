@@ -29,7 +29,6 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         changeView(UserData.getInstance().getUseInfo().getMainIndex());
     }
 
