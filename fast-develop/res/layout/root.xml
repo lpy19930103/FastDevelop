@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/fragment_root"
-        android:name="com.lipy.android.fragment.squared.MainScreenFragment"
+        android:name="com.lipy.android.fragment.base.MainScreenFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

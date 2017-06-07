@@ -121,8 +121,6 @@ android {
 
 }
 
-
-
 //获取版本号versionName
 def getVerName(String name) {
     def ver = name
@@ -245,7 +243,7 @@ def getSuffix() {
         strSuffix = suf;
     }
 
-    if(strSuffix.length() < 1) {
+    if (strSuffix.length() < 1) {
         strSuffix = 'release'
     }
 
@@ -255,8 +253,8 @@ def getSuffix() {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: '../libs')
     compile project(':viewlibrary')
-    compile 'com.google.android:support-v4:r7'
+    compile 'com.android.support:support-v4:26.0.0-alpha1'
     compile 'com.github.bumptech.glide:glide:3.5.2'
-    compile "io.reactivex.rxjava2:rxjava:2.1.0"
+    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
 }

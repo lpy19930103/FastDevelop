@@ -1,11 +1,9 @@
-package com.lipy.android.fragment.squared;
+package com.lipy.android.fragment.base;
 
 
-import com.lipy.android.fragment.BaseFragment;
-import com.lipy.android.utils.ImageUtil;
-import com.lipy.android.data.Business;
-import com.lipy.fastdevelop.R;
-
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,6 +15,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.lipy.android.data.Business;
+import com.lipy.fastdevelop.R;
+
+import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.util.List;
 
 
@@ -81,7 +84,7 @@ public class NavBottomBarFragment extends Fragment {
         String textColor = pressed ? biz.getTextPressedColor() : biz.getTextColor();
         currentView.setBackgroundColor(Color.parseColor(backColor));
 
-        ((ImageView) currentView.findViewById(R.id.nav_image)).setImageBitmap(ImageUtil.readBitMap(
+        ((ImageView) currentView.findViewById(R.id.nav_image)).setImageBitmap(readBitMap(
                 currentView.getContext(), R.drawable.class, backImage));
         ((TextView) currentView.findViewById(R.id.nav_name)).setTextColor(
                 Color.parseColor(textColor));
@@ -120,6 +123,36 @@ public class NavBottomBarFragment extends Fragment {
 
     public interface ShowMyHintView {
         void onShowMyHintView(boolean isShowMyHint);
+    }
+
+    public  Bitmap readBitMap(Context context, Class RDrawableClz, String imageName) {
+        Field field = null;
+        try {
+            field = RDrawableClz.getField(imageName);
+            int imageId = field.getInt(field.getName());
+
+            return readBitMap(context, imageId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 读取资源图片
+     *
+     * @param context
+     * @param resId
+     * @return
+     */
+    public static Bitmap readBitMap(Context context, int resId) {
+        BitmapFactory.Options opt = new BitmapFactory.Options();
+        opt.inPreferredConfig = Bitmap.Config.RGB_565;
+        opt.inPurgeable = true;
+        opt.inInputShareable = true;
+        // 获取资源图片
+        InputStream is = context.getResources().openRawResource(resId);
+        return BitmapFactory.decodeStream(is, null, opt);
     }
 
 }

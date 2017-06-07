@@ -10,10 +10,8 @@ public class UserData {
     // 用户操作类
     private UseInfo useInfo;
 
-
     private UserData() {
         useInfo = new UseInfo();
-
     }
 
     public static UserData getInstance() {
@@ -32,7 +30,6 @@ public class UserData {
 
 
     public void clear(){
-
         UserData.getInstance().getUseInfo().clear();
     }
 }

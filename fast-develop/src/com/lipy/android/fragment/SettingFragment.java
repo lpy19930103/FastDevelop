@@ -1,19 +1,21 @@
 package com.lipy.android.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.lipy.android.login.LoginActivity;
 import com.lipy.fastdevelop.R;
 
 
 /**
  * 个人中心
  */
-public class SettingFragment extends Fragment  {
+public class SettingFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -24,7 +26,7 @@ public class SettingFragment extends Fragment  {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        startActivity(new Intent(getActivity(), LoginActivity.class));
     }
 
 

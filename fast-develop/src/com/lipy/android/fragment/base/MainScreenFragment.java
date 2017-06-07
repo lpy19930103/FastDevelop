@@ -1,19 +1,19 @@
-package com.lipy.android.fragment.squared;
+package com.lipy.android.fragment.base;
 
+
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.lipy.android.data.Business;
-import com.lipy.android.fragment.BaseFragment;
 import com.lipy.fastdevelop.R;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-
-import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -42,15 +42,18 @@ public class MainScreenFragment extends BaseFragment {
 
         List<Business> navs = getBusiness(getActivity());
         // getActionBar().setDisplayHomeAsUpEnabled(true);
-
-        NavBottomBarFragment fragment = (NavBottomBarFragment) getFragmentManager().findFragmentById(R.id.fragment_navigation);
-        fragment.setBizs(this, navs);
+        FragmentManager fm = getChildFragmentManager();
+        NavBottomBarFragment fragment = (NavBottomBarFragment) fm.findFragmentByTag("NavBottomBarFragment");
+        if (null == fragment) {
+            fragment = new NavBottomBarFragment();
+            fm.beginTransaction().add(R.id.fragment_navigation, fragment, "NavBottomBarFragment").commit();
+        }        fragment.setBizs(this, navs);
 
         return view;
     }
 
     public void setNavByIndex(int index) {
-        NavBottomBarFragment fragment = (NavBottomBarFragment) getFragmentManager().findFragmentById(R.id.fragment_navigation);
+        NavBottomBarFragment fragment = (NavBottomBarFragment) getChildFragmentManager().findFragmentByTag("NavBottomBarFragment");
         fragment.setViewById(index);
 
     }

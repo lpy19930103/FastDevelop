@@ -7,7 +7,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.lipy.android.data.UserData;
-import com.lipy.android.fragment.squared.MainScreenFragment;
+import com.lipy.android.fragment.base.MainScreenFragment;
 import com.lipy.fastdevelop.R;
 
 public class MainActivity extends FragmentActivity {
