@@ -2,6 +2,9 @@ package com.lipy.android.panel;
 
 import android.util.Log;
 
+import com.lipy.android.http.DataObject;
+import com.lipy.android.http.OnLoadDataFinishedListener;
+
 /**
  * Created by lipy on 2017/6/8.
  */
@@ -37,11 +40,11 @@ public class PanelPresenterImpl implements PanelPresenter, OnLoadDataFinishedLis
     }
 
     @Override
-    public void onSuccess(JsonData data) {
+    public void onSuccess(DataObject data) {
         Log.e("P", "onSuccess");
         if (mPanelView != null) {
             mPanelView.hideLoading();
-            mPanelView.showSuccess(data);
+            mPanelView.showSuccess((JsonData) data);
         }
     }
 }

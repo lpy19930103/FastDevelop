@@ -1,12 +1,14 @@
 package com.lipy.android.panel;
 
+import com.lipy.android.http.DataObject;
+
 import java.util.List;
 
 /**
  * Created by lipy on 2017/6/8.
  */
 
-public class JsonData {
+public class JsonData implements DataObject{
 
 
     /**

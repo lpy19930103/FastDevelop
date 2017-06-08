@@ -1,10 +1,13 @@
 package com.lipy.android.login;
 
+import com.lipy.android.http.DataObject;
+import com.lipy.android.http.OnLoadDataFinishedListener;
+
 /**
  * Created by lipy on 2017/6/7.
  */
 
-public class LoginPresenterImpl implements LoginPresenter, OnLoginFinishedListener {
+public class LoginPresenterImpl implements LoginPresenter, OnLoadDataFinishedListener {
     private LoginView loginView;
     private LoginModel loginModel;
 
@@ -35,7 +38,7 @@ public class LoginPresenterImpl implements LoginPresenter, OnLoginFinishedListen
     }
 
     @Override
-    public void onSuccess() {
+    public void onSuccess(DataObject data) {
         if (loginView != null) {
             loginView.hideLoading();
             loginView.loginSuccess();

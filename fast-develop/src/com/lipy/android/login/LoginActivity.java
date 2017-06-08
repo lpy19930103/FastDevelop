@@ -5,15 +5,15 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
-import com.lipy.android.view.EditTextExp;
 import com.lipy.fastdevelop.R;
 
 public class LoginActivity extends Activity implements LoginView, View.OnClickListener {
 
-    private EditTextExp mNameET;
-    private EditTextExp mPwdET;
+    private EditText mNameET;
+    private EditText mPwdET;
     private LoginPresenterImpl mLoginPresenter;
     private ProgressDialog mProgressDialog;
 
@@ -23,8 +23,8 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
         setContentView(R.layout.activity_login);
         mLoginPresenter = new LoginPresenterImpl(this);
 
-        mNameET = (EditTextExp) findViewById(R.id.login_edit_name);
-        mPwdET = (EditTextExp) findViewById(R.id.login_edit_pwd);
+        mNameET = (EditText) findViewById(R.id.login_edit_name);
+        mPwdET = (EditText) findViewById(R.id.login_edit_pwd);
         findViewById(R.id.login).setOnClickListener(this);
         mProgressDialog = new ProgressDialog(this);
     }

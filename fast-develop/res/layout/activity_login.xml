@@ -11,13 +11,12 @@
     android:orientation="vertical"
     tools:context="com.lipy.android.login.LoginActivity">
 
-    <com.lipy.android.view.EditTextExp
+    <EditText
         android:id="@+id/login_edit_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
         android:hint="请输入账号"
-        android:inputType="textPassword"
         android:maxLength="16"
         android:maxLines="1"
         android:singleLine="true"
@@ -26,7 +25,7 @@
         android:textCursorDrawable="@null"
         android:textSize="15sp" />
 
-    <com.lipy.android.view.EditTextExp
+    <EditText
         android:layout_marginTop="10dp"
         android:id="@+id/login_edit_pwd"
         android:layout_width="match_parent"
