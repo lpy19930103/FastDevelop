@@ -6,4 +6,11 @@
 
     <color name="maskPressed">#33888888</color>
     <color name="maskPressed2">#22808080</color>
+
+    <color name="colorColumn">#346cf1</color>
+    <color name="colorRow">#f9ba1d</color>
+    <color name="lv_multichoice_bg">#e4dac1</color>
+    <color name="colorSelected">#e9c364</color>
+    <color name="colorDeselected">#fdfdfd</color>
+    <!--<color name="white">#fdfdfd</color>-->
 </resources>

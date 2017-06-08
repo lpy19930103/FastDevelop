@@ -55,6 +55,7 @@
             android:value="${CHANNEL_NAME}" />
 
         <activity android:name="com.lipy.android.login.LoginActivity"></activity>
+        <activity android:name="com.lipy.android.panel.PanelActivity"></activity>
     </application>
 
 </manifest>

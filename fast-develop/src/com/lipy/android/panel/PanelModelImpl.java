@@ -1,20 +1,17 @@
-package com.lipy.android.login;
+package com.lipy.android.panel;
 
 import android.util.Log;
 
 import com.google.gson.Gson;
 import com.lipy.android.common.Constants;
-import com.lipy.android.panel.JsonData;
-import com.lipy.android.panel.Request;
-
-import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -26,9 +23,9 @@ import retrofit2.Retrofit;
  * Created by lipy on 2017/6/7.
  */
 
-public class loginModelImpl implements LoginModel {
+public class PanelModelImpl implements PanelModel {
     @Override
-    public void login(String userName, String pwd, final OnLoginFinishedListener onLoginFinishedListener) {
+    public void loadData(final OnLoadDataFinishedListener onLoadDataFinishedListener) {
 
 
         Observable.create(new ObservableOnSubscribe<String>() {
@@ -43,8 +40,8 @@ public class loginModelImpl implements LoginModel {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         try {
-//                            Log.e("aaa", response.body().string());
                             e.onNext(response.body().string());
+                            Log.e("aaa", response.body().string());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -52,20 +49,34 @@ public class loginModelImpl implements LoginModel {
 
                     @Override
                     public void onFailure(Call<ResponseBody> call, Throwable t) {
-
+                        e.onError(t);
                     }
                 });
 
             }
-        }).delay(2000, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<String>() {
+        })
+                .subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
                     @Override
-                    public void accept(@NonNull String s) throws Exception {
+                    public void onSubscribe(@NonNull Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(@NonNull String s) {
                         Log.e("accept", s);
                         Gson gson = new Gson();
                         JsonData fromJson = gson.fromJson(s, JsonData.class);
                         Log.e("aaa", fromJson.toString());
-                        onLoginFinishedListener.onSuccess();
+                        onLoadDataFinishedListener.onSuccess(fromJson);
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        onLoadDataFinishedListener.onError();
+                    }
+
+                    @Override
+                    public void onComplete() {
                     }
                 });
     }

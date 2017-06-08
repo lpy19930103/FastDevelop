@@ -49,10 +49,10 @@ public class ProductFragment extends Fragment {
         @Override
         public View create(BannerItem item, int position, ViewGroup container) {
             ImageView iv = new ImageView(container.getContext());
+            iv.setScaleType(ImageView.ScaleType.FIT_XY);
             Glide.with(container.getContext().getApplicationContext())
                     .load(item.image)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .override(750, 700)
                     .into(iv);
             return iv;
         }

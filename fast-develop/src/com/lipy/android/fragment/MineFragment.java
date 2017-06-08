@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lipy.android.common.NoInterfaceActivity;
+import com.lipy.android.panel.PanelActivity;
 import com.lipy.fastdevelop.R;
 
 
@@ -24,10 +24,11 @@ public class MineFragment extends Fragment {
         view.findViewById(R.id.test_text).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), NoInterfaceActivity.class);
-                intent.putExtra(NoInterfaceActivity.LISTENER_KEY,
-                        "com.lipy.android.common.nointerface.NoInterfaceListenerImp");
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), NoInterfaceActivity.class);
+//                intent.putExtra(NoInterfaceActivity.LISTENER_KEY,
+//                        "com.lipy.android.common.nointerface.NoInterfaceListenerImp");
+//                startActivity(intent);
+                startActivity(new Intent(getActivity(), PanelActivity.class));
             }
         });
         return view;
