@@ -1,7 +1,6 @@
 package com.lipy.android.panel;
 
-import okhttp3.ResponseBody;
-import retrofit2.Call;
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 
 /**
@@ -10,5 +9,5 @@ import retrofit2.http.GET;
 
 public interface Request {
     @GET("city.json")
-    Call<ResponseBody> getBlog();
+    Observable<JsonData> getData();
 }
