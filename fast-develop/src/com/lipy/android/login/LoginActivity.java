@@ -43,6 +43,7 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
     @Override
     public void loginSuccess() {
         Toast.makeText(this, "登陆成功", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override
