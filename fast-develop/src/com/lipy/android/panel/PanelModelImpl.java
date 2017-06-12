@@ -2,7 +2,7 @@ package com.lipy.android.panel;
 
 import android.content.Context;
 
-import com.lipy.android.http.api.ApiService;
+import com.lipy.android.http.ApiService;
 import com.lipy.android.http.listener.OnLoadDataFinishedListener;
 
 /**

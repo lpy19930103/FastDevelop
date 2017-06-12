@@ -1,4 +1,4 @@
-package com.lipy.android.http;
+package com.lipy.android.http.api;
 
 import android.content.Context;
 import android.nfc.FormatException;
@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.lipy.android.http.api.Api;
 import com.lipy.android.http.cookie.ActionCookieManager;
 import com.lipy.android.http.cookie.CookieCacheImpl;
 import com.lipy.android.http.cookie.SharedPrefsCookiePersistor;
@@ -64,7 +63,7 @@ import retrofit2.http.FieldMap;
  * Response<User> user = api.getUser().execute();
  * }</pre>
  */
-public final class Action {
+public final class ApiAction {
     private static Map<String, String> headers;
     private static Map<String, String> parameters;
     private static Retrofit.Builder retrofitBuilder;
@@ -76,13 +75,13 @@ public final class Action {
     private final okhttp3.Call.Factory callFactory;
     private final String baseUrl;
 
-    public static final String TAG = "Action";
+    public static final String TAG = "ApiAction";
 
     /**
-     * Mandatory constructor for the Action
+     * Mandatory constructor for the ApiAction
      */
-    Action(okhttp3.Call.Factory callFactory, String baseUrl, Map<String, String> headers,
-           Map<String, String> parameters, Api apiManager
+    ApiAction(okhttp3.Call.Factory callFactory, String baseUrl, Map<String, String> headers,
+              Map<String, String> parameters, Api apiManager
     ) {
         this.callFactory = callFactory;
         this.baseUrl = baseUrl;
@@ -108,7 +107,7 @@ public final class Action {
     }
 
     /**
-     * Action execute get
+     * ApiAction execute get
      */
     public void executeGet(final String url, final Map<String, Object> maps, final ResponseCallBack<BaseResponse> callBack) {
         apiManager.executeGet(url, maps)
@@ -119,7 +118,7 @@ public final class Action {
 
 
     /**
-     * Action executePost
+     * ApiAction executePost
      */
     public void post(String url, @FieldMap(encoded = true) Map<String, Object> parameters, BaseObserver<ResponseBody> subscriber) {
         apiManager.executePost(url, parameters)
@@ -129,7 +128,7 @@ public final class Action {
 
 
     /**
-     * Action executePost
+     * ApiAction executePost
      */
     public void executePost(final String url, @FieldMap(encoded = true) Map<String, Object> parameters, final ResponseCallBack<ResponseBody> callBack) {
 
@@ -452,7 +451,7 @@ public final class Action {
          * Note: If neither {@link #client} nor {@link #callFactory} is called a default {@link
          * OkHttpClient} will be created and used.
          */
-        public Action build() {
+        public ApiAction build() {
             if (baseUrl == null) {
                 throw new IllegalStateException("Base URL required.");
             }
@@ -551,7 +550,7 @@ public final class Action {
              * Sets the handler that can accept cookies from incoming HTTP responses and provides cookies to
              * outgoing HTTP requests.
              *
-             * <p>If unset, {@link Action ActionCookieManager#NO_COOKIES no cookies} will be accepted nor provided.
+             * <p>If unset, {@link ApiAction ActionCookieManager#NO_COOKIES no cookies} will be accepted nor provided.
              */
             if (isCookie && cookieManager == null) {
                 //okhttpBuilder.cookieJar(new ActionCookieManger(context));
@@ -588,7 +587,7 @@ public final class Action {
              */
             apiManager = retrofit.create(Api.class);
 
-            return new Action(callFactory, baseUrl, headers, parameters, apiManager);
+            return new ApiAction(callFactory, baseUrl, headers, parameters, apiManager);
         }
     }
 

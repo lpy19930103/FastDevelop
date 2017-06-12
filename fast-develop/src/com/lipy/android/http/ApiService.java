@@ -1,10 +1,10 @@
-package com.lipy.android.http.api;
+package com.lipy.android.http;
 
 import android.content.Context;
 
 import com.google.gson.reflect.TypeToken;
 import com.lipy.android.common.Constants;
-import com.lipy.android.http.Action;
+import com.lipy.android.http.api.ApiAction;
 import com.lipy.android.http.exception.Throwable;
 import com.lipy.android.http.listener.OnLoadDataFinishedListener;
 import com.lipy.android.http.response.BaseResponse;
@@ -14,10 +14,6 @@ import com.lipy.android.panel.JsonData;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 /**
  * Created by lipy on 2017/6/8.
  */
@@ -25,16 +21,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiService {
 
     public static ApiService apiService;
-    private final Api api;
-
-    private ApiService() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build();
-        api = retrofit.create(Api.class);
-    }
 
     public static ApiService getInstance() {
         if (apiService == null) {
@@ -45,7 +31,7 @@ public class ApiService {
 
     public void getData(Context context, final String requestName, final OnLoadDataFinishedListener onLoadDataFinishedListener) {
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        new Action.Builder(context).baseUrl(Constants.URL).build().executeGet(requestName, stringObjectHashMap, new Action.ResponseCallBack<BaseResponse>() {
+        new ApiAction.Builder(context).baseUrl(Constants.URL).build().executeGet(requestName, stringObjectHashMap, new ApiAction.ResponseCallBack<BaseResponse>() {
             @Override
             public void onCompleted() {
             }
@@ -73,7 +59,7 @@ public class ApiService {
     public void login(Context context, final String name, final String pwd, final OnLoadDataFinishedListener onLoadDataFinishedListener) {
 
         HashMap<String, Object> stringObjectHashMap = new HashMap<>();
-        new Action.Builder(context).baseUrl(Constants.URL).build().executeGet("user", stringObjectHashMap, new Action.ResponseCallBack<BaseResponse>() {
+        new ApiAction.Builder(context).baseUrl(Constants.URL).build().executeGet("user", stringObjectHashMap, new ApiAction.ResponseCallBack<BaseResponse>() {
             @Override
             public void onCompleted() {
             }

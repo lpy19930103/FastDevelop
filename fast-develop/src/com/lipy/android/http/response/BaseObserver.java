@@ -22,12 +22,12 @@ public abstract class BaseObserver<T> implements Observer<T> {
 
     @Override
     public void onError(@NonNull java.lang.Throwable e) {
-        Log.v("Action", e.getMessage());
+        Log.v("ApiAction", e.getMessage());
         if(e instanceof Throwable){
-            Log.e("Action", "--> e instanceof Throwable"+ e);
+            Log.e("ApiAction", "--> e instanceof Throwable"+ e);
             onError((Throwable)e);
         } else {
-            Log.e("Action", "e !instanceof Throwable" + e);
+            Log.e("ApiAction", "e !instanceof Throwable" + e);
             onError(new Throwable(e, ActionException.ERROR.UNKNOWN));
         }
     }
