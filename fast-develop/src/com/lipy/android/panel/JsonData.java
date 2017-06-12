@@ -1,6 +1,6 @@
 package com.lipy.android.panel;
 
-import com.lipy.android.http.DataObject;
+import com.lipy.android.http.response.DataObject;
 
 import java.util.List;
 
@@ -129,6 +129,20 @@ public class JsonData implements DataObject{
 
         public void setForsale(String forsale) {
             this.forsale = forsale;
+        }
+
+        @Override
+        public String toString() {
+            return "ResultsBean{" +
+                    "city='" + city + '\'' +
+                    ", date='" + date + '\'' +
+                    ", construct='" + construct + '\'' +
+                    ", becompleted='" + becompleted + '\'' +
+                    ", market='" + market + '\'' +
+                    ", readyhouse='" + readyhouse + '\'' +
+                    ", propertyhouse='" + propertyhouse + '\'' +
+                    ", forsale='" + forsale + '\'' +
+                    '}';
         }
     }
 }

@@ -2,6 +2,7 @@ package com.lipy.android.panel;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -65,6 +66,11 @@ public class PanelActivity extends Activity implements PanelView {
     @Override
     public void showError() {
         Toast.makeText(this, "查询失败", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 
     @Override

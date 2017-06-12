@@ -2,6 +2,7 @@ package com.lipy.android.login;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -47,6 +48,11 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
     }
 
     @Override
+    public Context getContext() {
+        return this;
+    }
+
+    @Override
     public void showLoading() {
         mProgressDialog.setTitle(null);
         mProgressDialog.setMessage("正在加载...");
@@ -55,7 +61,6 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
 
     @Override
     public void hideLoading() {
-        Log.e("hhh","aaa");
         mProgressDialog.cancel();
     }
 

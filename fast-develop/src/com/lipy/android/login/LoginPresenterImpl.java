@@ -1,7 +1,7 @@
 package com.lipy.android.login;
 
-import com.lipy.android.http.DataObject;
-import com.lipy.android.http.OnLoadDataFinishedListener;
+import com.lipy.android.http.response.DataObject;
+import com.lipy.android.http.listener.OnLoadDataFinishedListener;
 
 /**
  * Created by lipy on 2017/6/7.
@@ -20,8 +20,8 @@ public class LoginPresenterImpl implements LoginPresenter, OnLoadDataFinishedLis
     public void validateUser(String userName, String pwd) {
         if (loginView != null) {
             loginView.showLoading();
+            loginModel.login(loginView.getContext(), userName, pwd, this);
         }
-        loginModel.login(userName, pwd, this);
     }
 
     @Override

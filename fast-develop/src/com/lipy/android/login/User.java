@@ -1,6 +1,6 @@
 package com.lipy.android.login;
 
-import com.lipy.android.http.DataObject;
+import com.lipy.android.http.response.DataObject;
 
 /**
  * Created by lipy on 2017/6/8.

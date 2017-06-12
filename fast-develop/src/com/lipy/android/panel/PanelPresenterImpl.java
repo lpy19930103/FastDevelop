@@ -2,8 +2,8 @@ package com.lipy.android.panel;
 
 import android.util.Log;
 
-import com.lipy.android.http.DataObject;
-import com.lipy.android.http.OnLoadDataFinishedListener;
+import com.lipy.android.http.response.DataObject;
+import com.lipy.android.http.listener.OnLoadDataFinishedListener;
 
 /**
  * Created by lipy on 2017/6/8.
@@ -22,8 +22,8 @@ public class PanelPresenterImpl implements PanelPresenter, OnLoadDataFinishedLis
     public void loadData() {
         if (mPanelView != null) {
             mPanelView.showLoading();
+            panelModel.loadData(mPanelView.getContext(), this);
         }
-        panelModel.loadData(this);
     }
 
     @Override

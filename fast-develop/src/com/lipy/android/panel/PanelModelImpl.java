@@ -1,7 +1,9 @@
 package com.lipy.android.panel;
 
-import com.lipy.android.http.ApiService;
-import com.lipy.android.http.OnLoadDataFinishedListener;
+import android.content.Context;
+
+import com.lipy.android.http.api.ApiService;
+import com.lipy.android.http.listener.OnLoadDataFinishedListener;
 
 /**
  * Created by lipy on 2017/6/7.
@@ -9,7 +11,7 @@ import com.lipy.android.http.OnLoadDataFinishedListener;
 
 public class PanelModelImpl implements PanelModel {
     @Override
-    public void loadData(final OnLoadDataFinishedListener onLoadDataFinishedListener) {
-        ApiService.getInstance().getData("city3", onLoadDataFinishedListener);
+    public void loadData(Context context, final OnLoadDataFinishedListener onLoadDataFinishedListener) {
+        ApiService.getInstance().getData(context, "city3", onLoadDataFinishedListener);
     }
 }

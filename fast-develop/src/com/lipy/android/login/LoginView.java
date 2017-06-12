@@ -1,5 +1,7 @@
 package com.lipy.android.login;
 
+import android.content.Context;
+
 import com.lipy.android.common.BaseView;
 
 /**
@@ -11,6 +13,8 @@ public interface LoginView extends BaseView {
     void showError();
 
     void loginSuccess();
+
+    Context getContext();
 
 
 }
