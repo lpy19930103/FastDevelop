@@ -105,7 +105,7 @@ android {
             def oldFile = output.outputFile
             def newName = '';
             if (variant.buildType.name.equals('release')) {
-                // APK输出文件名规则：EGFBankP2B_v + verName + channelId + _ +date + _Android_release
+                // APK输出文件名规则：APPNAME + verName + channelId + _ +date + _Android_release
                 def releaseApkName = 'fastdevelop' + versionName + '_' +
                         variant.productFlavors[0].name + "_" + getDate() + '_Android_' +
                         getSuffix() + '.apk'
@@ -254,7 +254,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: '../libs')
     compile project(':viewlibrary')
     compile 'com.android.support:support-v4:26.0.0-alpha1'
-    compile 'com.github.bumptech.glide:glide:3.5.2'
     compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -262,4 +261,5 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC0'
 }
