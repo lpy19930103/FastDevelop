@@ -476,7 +476,6 @@ public final class ApiAction {
             if (converterFactory == null) {
                 converterFactory = GsonConverterFactory.create();
             }
-            ;
 
             retrofitBuilder.addConverterFactory(converterFactory);
             /**
