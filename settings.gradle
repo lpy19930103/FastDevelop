@@ -1,2 +1,2 @@
-include ':fast-develop', ':viewlibrary'
+include ':fast-develop', ':viewlibrary', ':rxjavademo'
 

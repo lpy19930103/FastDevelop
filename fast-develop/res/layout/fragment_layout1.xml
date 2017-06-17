@@ -14,5 +14,11 @@
         app:bvIndicatorColor="#cccccc"
         app:bvIndicatorColorSelected="@color/colorAccent" />
 
+    <lecho.lib.hellocharts.view.LineChartView
+        android:id="@+id/line_chart"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+
 
 </LinearLayout>
