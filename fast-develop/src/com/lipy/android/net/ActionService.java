@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import com.lipy.android.http.response.DataObject;
 import com.lipy.android.net.callback.JsonCallback;
-import com.lipy.android.net.callback.OnResponeListener;
+import com.lipy.android.net.callback.OnResponseListener;
 import com.lipy.android.net.dto.ServerModel;
 import com.lipy.android.util.FileUtils;
 import com.lzy.okgo.OkGo;
@@ -48,28 +48,28 @@ public class ActionService<T extends DataObject> {
     public static final String DOWN_LOAD_URL = "http://121.29.10.1/f5.market.mi-img.com/download/AppStore/0b8b552a1df0a8bc417a5afae3a26b2fb1342a909/com.qiyi.video.apk";
 //    public static final String DOWN_LOAD_URL = "http://ongeesmn7.bkt.clouddn.com/miniapps/test.mp4";
 
-    public void request(HttpParams httpParams, final OnResponeListener onResponeListener) {
-        Log.e(TAG, url + onResponeListener.getTag());
-        OkGo.<ServerModel>post(url + onResponeListener.getTag())
-                .tag(onResponeListener.getTag())
+    public void request(HttpParams httpParams, final OnResponseListener onResponseListener) {
+        Log.e(TAG, url + onResponseListener.getTag());
+        OkGo.<ServerModel>post(url + onResponseListener.getTag())
+                .tag(onResponseListener.getTag())
                 .headers("token", "token")
                 .params(httpParams)
-                .execute(new JsonCallback<ServerModel>(onResponeListener.getType()) {
+                .execute(new JsonCallback<ServerModel>(onResponseListener.getType()) {
                     @Override
                     public void onSuccess(Response<ServerModel> response) {
                         try {
                             ServerModel<T> body = response.body();
                             Log.e("TAG", response.getRawResponse() + " =  onSuccess");
                             if (body == null) {
-                                onResponeListener.error("服务器无响应");
+                                onResponseListener.error("服务器无响应");
                                 return;
                             }
                             switch (body.getCode()) {
                                 case 0:
-                                    onResponeListener.success(body);
+                                    onResponseListener.success(body);
                                     break;
                                 default:
-                                    onResponeListener.error(body.getMsg());
+                                    onResponseListener.error(body.getMsg());
                                     break;
                             }
                         } catch (Exception e) {
@@ -82,7 +82,7 @@ public class ActionService<T extends DataObject> {
                         super.onError(response);
                         try {
                             Log.e("TAG", response.getRawResponse() + " =  onError");
-                            onResponeListener.error(response.message());
+                            onResponseListener.error(response.message());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

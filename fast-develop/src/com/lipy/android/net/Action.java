@@ -4,8 +4,9 @@ import android.content.Context;
 
 import com.google.gson.reflect.TypeToken;
 import com.lipy.android.http.response.DataObject;
-import com.lipy.android.net.callback.OnDefaultResponeListener;
-import com.lipy.android.net.callback.OnResponeListener;
+import com.lipy.android.net.callback.OnDefaultResponseListener;
+import com.lipy.android.net.callback.OnResponseListener;
+import com.lipy.android.net.callback.OnResponseListener;
 import com.lipy.android.net.dto.ServerModel;
 import com.lzy.okgo.model.HttpParams;
 
@@ -17,16 +18,16 @@ import java.lang.reflect.Type;
 
 public class Action<T extends DataObject> {
     private ActionService<T> mActionService;
-    private OnDefaultResponeListener mView;
+    private OnDefaultResponseListener mView;
 
-    public Action(OnDefaultResponeListener view) {
+    public Action(OnDefaultResponseListener view) {
         mView = view;
         mActionService = new ActionService<>();
     }
 
     public void getUser(final String tag, HttpParams httpParams) {
         mView.startLoading();
-        mActionService.request(httpParams, new OnResponeListener() {
+        mActionService.request(httpParams, new OnResponseListener() {
 
             @Override
             public void success(ServerModel tServerModel) {
