@@ -11,8 +11,8 @@ buildscript {
     }
 }
 ext {
-    allprojectCompileSdkVersion=22
-    allprojectBuildToolsVersion="23.0.1"
+    allprojectCompileSdkVersion=25
+    allprojectBuildToolsVersion="25.0.2"
 }
 
 

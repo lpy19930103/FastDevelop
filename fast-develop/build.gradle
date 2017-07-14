@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId "com.lipy.fastdevelop"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode getVerCode(verCode)
         versionName getVerName(verName)
     }
@@ -253,7 +253,7 @@ def getSuffix() {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: '../libs')
     compile project(':viewlibrary')
-    compile 'com.android.support:support-v4:26.0.0-alpha1'
+    compile 'com.android.support:appcompat-v7:25.1.1'
     compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -266,4 +266,14 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
 //    compile 'com.github.lecho:hellocharts-android:v1.5.8'
+
+
+    compile 'com.lzy.net:okgo:3.0.2'
+    //以下三个选择添加，okrx和okrx2不能同时使用
+    compile 'com.lzy.net:okrx2:2.0.2'
+    compile 'com.lzy.net:okserver:2.0.2'
+
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.readystatesoftware.chuck:library:1.0.4'
+
 }
