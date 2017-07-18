@@ -127,8 +127,8 @@ public class ActionService<T extends DataObject> {
         //这里第一个参数是tag，代表下载任务的唯一标识，传任意字符串都行，需要保证唯一,我这里用url作为了tag
         return OkDownload.request(url, request)//
                 .priority(new Random().nextInt(100))//
-                .register(logDownloadListener);
-//                .folder("/storage/emulated/0/")
+                .register(logDownloadListener)
+                .folder("/storage/emulated/0/");
 //                .fileName("aaa.mp4");
     }
 
